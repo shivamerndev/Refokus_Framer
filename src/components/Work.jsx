@@ -1,15 +1,15 @@
-import React, { useState } from 'react'
-import { motion, useSpring } from "framer-motion"
+import { useState } from 'react'
 import { useMotionValueEvent, useScroll } from "motion/react"
+
 const Work = () => {
 
     let Data = [
         { url: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?q=80&w=1920&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '50%', left: '50%', isActive: false },
         { url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '56%', left: '47%', isActive: false },
-        { url: 'https://plus.unsplash.com/premium_photo-1669704098750-7cd22c35422b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '52%', left: '52%', isActive: false },
-        { url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '60%', left: '53%', isActive: false },
+        { url: 'https://plus.unsplash.com/premium_photo-1669704098750-7cd22c35422b?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '42%', left: '62%', isActive: false },
+        { url: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '65%', left: '43%', isActive: false },
         { url: 'https://plus.unsplash.com/premium_photo-1669703777695-f8052a432411?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '53%', left: '49%', isActive: false },
-        { url: 'https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '58%', left: '53%', isActive: false },
+        { url: 'https://images.unsplash.com/photo-1488161628813-04466f872be2?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', top: '68%', left: '63%', isActive: false },
     ];
 
     let [images, setImages] = useState(Data);
@@ -17,17 +17,11 @@ const Work = () => {
     const { scrollYProgress } = useScroll()
 
     useMotionValueEvent(scrollYProgress, "change", (latest) => {
-        //   console.log("Page scroll: ", latest)
         let imageShow = arr => {
-            setImages(prev => prev.map((e, i) =>  arr.indexOf(i) === -1 ? { ...e, isActive: false } : { ...e, isActive: true}))
-        } // cdn code hai...
-        
-    // scrollYProgress.on("change", (latest) => {
-    //     //   console.log("Page scroll: ", latest)
-    //     let imageShow = arr => {
-    //         setImages(prev => prev.map((e, i) => arr.indexOf(i) === -1 ? { ...e, isActive: false } : { ...e, isActive: true }))
-    //     }
-        switch (Math.floor(latest*50)) {  // * 100 = 1 scroll console.log
+            setImages(prev => prev.map((e, i) => arr.indexOf(i) === -1 ? { ...e, isActive: false } : { ...e, isActive: true }))
+        }
+
+        switch (Math.floor(latest * 150)) {  // * 100 = 1 scroll console.log
             case 0: imageShow([]); break;
             case 2: imageShow([0]); break;   //scroll 2 par 1 img into view.
             case 4: imageShow([0, 1,]); break;

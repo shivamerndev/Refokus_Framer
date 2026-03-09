@@ -36,11 +36,6 @@ const Products = () => {
     }
   }
 
-  let color = () => {
-   return (`rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`)
-  }
-  console.log('color', color())
-
   return (
     <div className='w-full  flex flex-col gap-4 mt-[10vw] relative bg-black'>
       {productData.map((p, i) => {

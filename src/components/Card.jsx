@@ -1,14 +1,9 @@
-import React from 'react'
 
-const Card = ({ width, start, para, hover }) => {
+const Card = ({ width, start, para }) => {
     return (
-        <div className={`bg-zinc-700 relative h-full p-4 rounded-2xl ${width} hover:bg-${hover}`}>
-            {/* <p className='capitalize'>up next: culture</p>
-            <p className='absolute right-4'>➡️</p>
-            <h1 className='text-4xl mt-12'>Who we are</h1>
-            <p className='absolute bottom-4 text-sm capitalize text-gray-300'>explore what drives our team.</p> */}
+        <div className={`bg-zinc-700 relative h-full p-4 rounded-2xl ${width} hover:bg-rose-500 `}>
             <p className='capitalize text-gray-300'>get in touch</p>
-            <p className='absolute right-4'>➡️</p>
+
             <h1 className='text-4xl mt-12 w-1/3 text-gray-200 '>Let's get to it, together.</h1>
             {
                 start && <div>
